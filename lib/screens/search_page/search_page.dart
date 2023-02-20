@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:qtec_task/buttons/add_to_cart_button.dart';
+import 'package:qtec_task/models/products.dart';
 import 'package:qtec_task/widgets/product_card/product_card.dart';
+
 import 'package:qtec_task/widgets/search_field.dart';
 
 class SearchPage extends StatefulWidget {
@@ -15,25 +16,31 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(247, 242, 255, 1),
-      // appBar: AppBar(
-      //   backgroundColor: Color.fromRGBO(247, 242, 255, 1),
-      //   title: SearchField(),
-      // ),
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
+          child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
           child: Column(
             children: [
+              const SizedBox(
+                height: 20,
+              ),
               const SearchField(),
               const SizedBox(
                 height: 20,
               ),
-              // Container(
-              //   child: GridView.count(
-              //     crossAxisCount: 2,
-              //   ),
-              // )
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: products.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 2,
+                    mainAxisSpacing: 2,
+                    mainAxisExtent: 267),
+                itemBuilder: (context, index) =>
+                    ProductCard(products: products[index]),
+              ),
             ],
           ),
         ),

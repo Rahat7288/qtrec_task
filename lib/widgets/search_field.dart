@@ -13,16 +13,20 @@ class _SearchFieldState extends State<SearchField> {
     return Form(
         child: TextField(
       decoration: InputDecoration(
-        fillColor: Colors.red,
-        border: OutlineInputBorder(
+        filled: true,
+        fillColor: Colors.white,
+        enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(
-            color: Colors.white,
-            style: BorderStyle.solid,
-            width: 0,
-          ),
+          borderSide: const BorderSide(color: Colors.white),
         ),
-        suffixIcon: Icon(Icons.search),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(color: Colors.white),
+        ),
+        suffixIcon: const Icon(
+          Icons.search,
+          color: Color.fromRGBO(167, 167, 167, 1),
+        ),
         hintText: 'কাঙ্ক্ষিত পণ্যটি খুঁজুন',
       ),
     ));
