@@ -16,16 +16,19 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(247, 242, 255, 1),
-      body: SafeArea(
-          child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 30),
+        child: SafeArea(
+            child: SingleChildScrollView(
           child: Column(
             children: [
               const SizedBox(
                 height: 20,
               ),
-              const SearchField(),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: SearchField(),
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -43,8 +46,8 @@ class _SearchPageState extends State<SearchPage> {
               ),
             ],
           ),
-        ),
-      )),
+        )),
+      ),
     );
   }
 }
