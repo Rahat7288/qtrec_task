@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:qtec_task/constants/constants.dart';
 import 'package:qtec_task/exceptions/product_exceptions.dart';
+
 import 'package:qtec_task/services/http_error_handler.dart';
 
 class ProductApiService {
@@ -16,7 +17,7 @@ class ProductApiService {
     final Uri uri = Uri(
       scheme: 'https',
       host: pHost,
-      path: '',
+      path: '/api/product/search-suggestions/?limit=10&search=$productName',
       queryParameters: {
         'query': productName,
       },
