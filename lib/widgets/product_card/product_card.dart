@@ -164,13 +164,13 @@ class ProductCard extends StatelessWidget {
                 ),
               ),
             ),
-            products.stockTag
-                ? Positioned(
-                    top: 10,
-                    right: 10,
-                    child: StockTag(),
-                  )
-                : Container()
+            // products.stockTag
+            //     ? Positioned(
+            //         top: 10,
+            //         right: 10,
+            //         child: StockTag(),
+            //       )
+            // : Container()
           ],
         ),
       ),

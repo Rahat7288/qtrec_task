@@ -9,7 +9,7 @@ class Product {
       profitPrice,
       description;
   final int productId, stock;
-  bool stockTag = false;
+  // bool stockTag = false;
   Product({
     required this.stock,
     required this.productImage,
@@ -20,13 +20,14 @@ class Product {
     required this.profitPrice,
     required this.description,
     required this.productId,
-    required bool stockTag,
   });
+
+  @override
+  String toString() => 'Product(stock: $stock,)';
 }
 
 List<Product> products = [
   Product(
-    stockTag: false,
     stock: 100,
     productImage: 'assets/images/img1.png',
     productName: 'Lays Classic Family Chips',
@@ -34,11 +35,11 @@ List<Product> products = [
     prevPrice: '৳ 22.00',
     sellPrice: '25.00',
     profitPrice: '৳ 5.00',
-    description: 'blah blah blah',
+    description:
+        'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah',
     productId: 1,
   ),
   Product(
-    stockTag: false,
     stock: 100,
     productImage: 'assets/images/img1.png',
     productName: 'Lays Classic Family Chips',
@@ -46,11 +47,11 @@ List<Product> products = [
     prevPrice: '৳ 22.00',
     sellPrice: '25.00',
     profitPrice: '৳ 5.00',
-    description: 'blah blah blah',
+    description:
+        'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah',
     productId: 2,
   ),
   Product(
-    stockTag: false,
     stock: 100,
     productImage: 'assets/images/img1.png',
     productName: 'Lays Classic Family Chips',
@@ -58,11 +59,11 @@ List<Product> products = [
     prevPrice: '৳ 22.00',
     sellPrice: '25.00',
     profitPrice: '৳ 5.00',
-    description: 'blah blah blah',
+    description:
+        'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah',
     productId: 3,
   ),
   Product(
-    stockTag: false,
     stock: 100,
     productImage: 'assets/images/img1.png',
     productName: 'Lays Classic Family Chips',
@@ -70,11 +71,11 @@ List<Product> products = [
     prevPrice: '৳ 22.00',
     sellPrice: '25.00',
     profitPrice: '৳ 5.00',
-    description: 'blah blah blah',
+    description:
+        'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah',
     productId: 4,
   ),
   Product(
-    stockTag: false,
     stock: 100,
     productImage: 'assets/images/img1.png',
     productName: 'Lays Classic Family Chips',
@@ -82,11 +83,11 @@ List<Product> products = [
     prevPrice: '৳ 22.00',
     sellPrice: '25.00',
     profitPrice: '৳ 5.00',
-    description: 'blah blah blah',
+    description:
+        'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah ',
     productId: 5,
   ),
   Product(
-    stockTag: false,
     stock: 100,
     productImage: 'assets/images/img1.png',
     productName: 'Lays Classic Family Chips',
@@ -94,11 +95,11 @@ List<Product> products = [
     prevPrice: '৳ 22.00',
     sellPrice: '25.00',
     profitPrice: '৳ 5.00',
-    description: 'blah blah blah',
+    description:
+        'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah',
     productId: 6,
   ),
   Product(
-    stockTag: false,
     stock: 100,
     productImage: 'assets/images/img1.png',
     productName: 'Lays Classic Family Chips',
@@ -106,11 +107,11 @@ List<Product> products = [
     prevPrice: '৳ 22.00',
     sellPrice: '25.00',
     profitPrice: '৳ 5.00',
-    description: 'blah blah blah',
+    description:
+        'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah',
     productId: 7,
   ),
   Product(
-    stockTag: false,
     stock: 100,
     productImage: 'assets/images/img1.png',
     productName: 'Lays Classic Family Chips',
@@ -118,7 +119,8 @@ List<Product> products = [
     prevPrice: '৳ 22.00',
     sellPrice: '25.00',
     profitPrice: '৳ 5.00',
-    description: 'blah blah blah',
+    description:
+        'blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah',
     productId: 8,
   ),
 ];

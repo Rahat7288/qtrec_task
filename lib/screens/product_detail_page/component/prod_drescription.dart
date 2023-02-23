@@ -10,22 +10,26 @@ class ProdDrescription extends StatelessWidget {
       required this.distributorName,
       required this.productPrice,
       required this.sellPrice,
-      required this.profit});
+      required this.profit,
+      required this.productSescription,
+      required this.description});
   final String productName,
       brandName,
       distributorName,
       productPrice,
       sellPrice,
-      profit;
+      profit,
+      productSescription,
+      description;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         content(productName, brandName, distributorName, sellPrice,
-            productPrice, profit, context),
+            productPrice, profit, description, context),
         const Positioned(
-          bottom: 30,
+          bottom: 50,
           left: 150,
           child: AddToCartButton(),
         )
@@ -34,7 +38,7 @@ class ProdDrescription extends StatelessWidget {
   }
 
   Widget content(String name, String bName, String disName, String sPrice,
-      String bPrice, String pof, BuildContext context) {
+      String bPrice, String pof, String descrip, BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -208,8 +212,8 @@ class ProdDrescription extends StatelessWidget {
           height: 30,
         ),
         Text(
-          'data',
-          style: TextStyle(
+          descrip,
+          style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w400,
               color: Color.fromRGBO(100, 100, 100, 1)),

@@ -21,7 +21,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(247, 242, 255, 1),
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         leadingWidth: 25,
         backgroundColor: const Color.fromRGBO(247, 242, 255, 1),
         shadowColor: const Color.fromRGBO(247, 242, 255, 1),
@@ -58,6 +58,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   productPrice: widget.products.productPrice,
                   sellPrice: widget.products.sellPrice,
                   profit: widget.products.profitPrice,
+                  productSescription: widget.products.description,
+                  description: widget.products.description,
                 ),
               )
             ],
