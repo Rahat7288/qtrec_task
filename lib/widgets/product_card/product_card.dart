@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qtec_task/models/product_model.dart';
 import 'package:qtec_task/widgets/product_card/elements/stock_tag.dart';
 
 import '../../models/products.dart';
@@ -6,10 +7,10 @@ import '../../models/products.dart';
 class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
-    required this.products,
+    required this.results,
     required this.press,
   });
-  final Product products;
+  final List<Results> results;
   final Function() press;
 
   @override
@@ -38,14 +39,14 @@ class ProductCard extends StatelessWidget {
                       child: Image(
                         height: 117,
                         width: 87,
-                        image: AssetImage(products.productImage),
+                        image: AssetImage(results[0].image),
                       ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      products.productName,
+                      results[0].productName,
                       style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
@@ -79,7 +80,7 @@ class ProductCard extends StatelessWidget {
                                   width: 5,
                                 ),
                                 Text(
-                                  products.productPrice,
+                                  results[0].charge.currentCharge.toString(),
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
@@ -102,7 +103,7 @@ class ProductCard extends StatelessWidget {
                                   width: 5,
                                 ),
                                 Text(
-                                  products.sellPrice,
+                                  results[0].charge.sellingPrice.toString(),
                                   style: const TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w600,
@@ -120,7 +121,7 @@ class ProductCard extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  products.prevPrice,
+                                  results[0].charge.discountCharge.toString(),
                                   style: const TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w500,
@@ -147,7 +148,7 @@ class ProductCard extends StatelessWidget {
                                   width: 5,
                                 ),
                                 Text(
-                                  products.profitPrice,
+                                  results[0].charge.discountCharge.toString(),
                                   style: const TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w600,

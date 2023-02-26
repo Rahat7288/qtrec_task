@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class ProductModel {
   ProductModel({
     required this.status,
@@ -6,9 +8,10 @@ class ProductModel {
   late final String status;
   late final Data data;
 
-  ProductModel.fromJson(Map<String, dynamic> json){
+  ProductModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     data = Data.fromJson(json['data']);
+
   }
 
   Map<String, dynamic> toJson() {
@@ -27,7 +30,7 @@ class Data {
   late final List<dynamic> categories;
   late final Products products;
 
-  Data.fromJson(Map<String, dynamic> json){
+  Data.fromJson(Map<String, dynamic> json) {
     categories = List.castFrom<String, dynamic>(json['categories']);
     products = Products.fromJson(json['products']);
   }
@@ -52,11 +55,12 @@ class Products {
   late final String previous;
   late final List<Results> results;
 
-  Products.fromJson(Map<String, dynamic> json){
+  Products.fromJson(Map<String, dynamic> json) {
     count = json['count'];
     next = json['next'];
     previous = json['previous'];
-    results = List.from(json['results']).map((e)=>Results.fromJson(e)).toList();
+    results =
+        List.from(json['results']).map((e) => Results.fromJson(e)).toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -64,7 +68,7 @@ class Products {
     _data['count'] = count;
     _data['next'] = next;
     _data['previous'] = previous;
-    _data['results'] = results.map((e)=>e.toJson()).toList();
+    _data['results'] = results.map((e) => e.toJson()).toList();
     return _data;
   }
 }
@@ -149,12 +153,12 @@ class Results {
   late final List<dynamic> filterValue;
   late final List<dynamic> distributors;
 
-  Results.fromJson(Map<String, dynamic> json){
+  Results.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     brand = Brand.fromJson(json['brand']);
     image = json['image'];
     charge = Charge.fromJson(json['charge']);
-    images = List.from(json['images']).map((e)=>Images.fromJson(e)).toList();
+    images = List.from(json['images']).map((e) => Images.fromJson(e)).toList();
     slug = json['slug'];
     productName = json['product_name'];
     model = json['model'];
@@ -196,7 +200,7 @@ class Results {
     _data['brand'] = brand.toJson();
     _data['image'] = image;
     _data['charge'] = charge.toJson();
-    _data['images'] = images.map((e)=>e.toJson()).toList();
+    _data['images'] = images.map((e) => e.toJson()).toList();
     _data['slug'] = slug;
     _data['product_name'] = productName;
     _data['model'] = model;
@@ -246,7 +250,7 @@ class Brand {
   late final Null headerImage;
   late final String slug;
 
-  Brand.fromJson(Map<String, dynamic> json){
+  Brand.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     image = json['image'];
     headerImage = null;
@@ -295,7 +299,7 @@ class Charge {
   late final bool campaignSection;
   late final Null message;
 
-  Charge.fromJson(Map<String, dynamic> json){
+  Charge.fromJson(Map<String, dynamic> json) {
     bookingPrice = json['booking_price'];
     currentCharge = json['current_charge'];
     discountCharge = null;
@@ -344,7 +348,7 @@ class Images {
   late final bool isPrimary;
   late final int product;
 
-  Images.fromJson(Map<String, dynamic> json){
+  Images.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     image = json['image'];
     isPrimary = json['is_primary'];
