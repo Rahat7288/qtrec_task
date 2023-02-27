@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 class ProductModel {
   ProductModel({
     required this.status,
@@ -11,7 +9,6 @@ class ProductModel {
   ProductModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     data = Data.fromJson(json['data']);
-
   }
 
   Map<String, dynamic> toJson() {

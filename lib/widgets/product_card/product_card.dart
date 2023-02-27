@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:qtec_task/models/product_model.dart';
 import 'package:qtec_task/widgets/product_card/elements/stock_tag.dart';
 
-import '../../models/products.dart';
-
 class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
