@@ -1,76 +1,34 @@
 import 'dart:convert';
-import '../models/product_model.dart';
 import 'package:http/http.dart' as http;
 
-class ApiService {
-  Future<ProductModel> getData() async {
-    // List<ProductModel> productData = [];
+import '../models/product_model.dart';
 
+class ApiService {
+  Future<ProductModel> getAllData(String productName) async {
     try {
       http.Response response = await http.get(Uri.parse(
-          'https://panel.supplyline.network/api/product/search-suggestions/?limit=10&offset=10&search=rice'));
+          'https://panel.supplyline.network/api/product/search-suggestions/?limit=10&offset=10&search=$productName'));
 
-      // debugPrint(response.body);
       if (response.statusCode == 200) {
         final responseData = json.decode(response.body);
         print(responseData);
-        return ProductModel.fromJson(responseData);
+        ProductModel productModel = ProductModel.fromJson(responseData);
+
+        return productModel;
       } else {
-        return Future.error('error');
+        throw Future.error(
+            'Unable to get the data. status code: ${response.statusCode}');
       }
     } catch (e) {
-      rethrow;
-    }
-  }
-  // function to get slag
-
-  Future<String> getSlag(String productName) async {
-    final Uri uri = Uri(
-      scheme: 'https',
-      host: 'https://panel.supplyline.network/',
-      path:
-          '/api/product/search-suggestions/?limit=10&offset=10&search=$productName',
-      queryParameters: {
-        'query': productName,
-      },
-    );
-
-    try {
-      final http.Response response = await http.get(uri);
-
-      if (response.statusCode == 200) {
-        final resultData = json.decode(response.body);
-        final Results results = Results.fromJson(resultData);
-        return results.slug;
-      } else {
-        return Future.error('error');
-      }
-    } catch (e) {
-      rethrow;
+      return Future.error(e.toString());
     }
   }
 
-  // function for product details api
-
-  Future<Results> productDetails(String slag) async {
-    final Uri uri = Uri(
-      scheme: 'https',
-      host: 'https://panel.supplyline.network/',
-      path: '/api/product-details/$slag/',
-    );
-
+  Future<void> getProductDetails(String slag) async {
     try {
-      final http.Response response = await http.get(uri);
-
-      if (response.statusCode == 200) {
-        final productInfo = json.decode(response.body);
-        final Results results = Results.fromJson(productInfo);
-        return results;
-      } else {
-        return Future.error('error');
-      }
+      http.Response response = await http.get(Uri.parse(''));
     } catch (e) {
-      rethrow;
+      return Future.error(e.toString());
     }
   }
 }

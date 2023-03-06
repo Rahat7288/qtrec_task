@@ -28,7 +28,7 @@ class Data {
   late final Products products;
 
   Data.fromJson(Map<String, dynamic> json) {
-    categories = List.castFrom<String, dynamic>(json['categories']);
+    categories = List.castFrom<dynamic, dynamic>(json['categories']);
     products = Products.fromJson(json['products']);
   }
 
@@ -281,11 +281,11 @@ class Charge {
     required this.campaignSection,
     this.message,
   });
-  late final int bookingPrice;
-  late final int currentCharge;
+  late final double bookingPrice;
+  late final double currentCharge;
   late final Null discountCharge;
-  late final int sellingPrice;
-  late final int profit;
+  late final double sellingPrice;
+  late final double profit;
   late final bool isEvent;
   late final Null eventId;
   late final bool highlight;

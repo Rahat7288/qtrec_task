@@ -13,26 +13,29 @@ class ProductsInitial extends ProductsState {
   List<Object> get props => [];
 }
 
-class ProductCubitLoading extends ProductsState {
+class ProductsLoading extends ProductsState {
   @override
   List<Object> get props => [];
 }
 
-class ProductCubitDataLoaded extends ProductsState {
+class ProductsLoded extends ProductsState {
   ProductModel productModel;
-  ProductCubitDataLoaded({
+  // List<Results> results;
+  ProductsLoded({
     required this.productModel,
+    // required this.results,
   });
+  // Data get data => productModel.data;
+
   @override
   List<Object> get props => [productModel];
 }
 
-class ProductCubitError extends ProductsState {
-  String message;
-  ProductCubitError({
+class ProductsError extends ProductsState {
+  final String message;
+  ProductsError({
     required this.message,
   });
-
   @override
   List<Object> get props => [message];
 }

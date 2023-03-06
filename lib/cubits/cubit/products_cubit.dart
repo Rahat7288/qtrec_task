@@ -1,29 +1,25 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import 'package:qtec_task/models/product_model.dart';
-import 'package:qtec_task/services/api_service.dart';
+import '../../models/product_model.dart';
+import '../../services/api_service.dart';
 
 part 'products_state.dart';
 
 class ProductsCubit extends Cubit<ProductsState> {
-  ProductModel? productModel;
-  List<Results> results = [];
-  ApiService? apiService;
-  ProductsCubit({
-    this.productModel,
-    required this.apiService,
-  }) : super(ProductsInitial());
+  // Future<List<Results>>? results;
+  late ProductModel productModel;
+  ApiService apiService;
+  ProductsCubit({required this.apiService}) : super(ProductsInitial());
 
-  void getAllProductList() async {
+  Future<void> getAllProductList(String productName) async {
     try {
-      emit(ProductCubitLoading());
-
-      productModel = await apiService!.getData();
-      emit(ProductCubitDataLoaded(productModel: productModel!));
+      emit(ProductsLoading());
+      // results = (await apiService.getAllData()) as Future<List<Results>>;
+      productModel = (await apiService.getAllData(productName));
+      emit(ProductsLoded(productModel: productModel));
     } catch (e) {
-      emit(ProductCubitError(message: e.toString()));
+      emit(ProductsError(message: e.toString()));
     }
   }
 }
