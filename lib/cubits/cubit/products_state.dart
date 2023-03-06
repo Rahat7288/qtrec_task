@@ -20,12 +20,9 @@ class ProductsLoading extends ProductsState {
 
 class ProductsLoded extends ProductsState {
   ProductModel productModel;
-  // List<Results> results;
   ProductsLoded({
     required this.productModel,
-    // required this.results,
   });
-  // Data get data => productModel.data;
 
   @override
   List<Object> get props => [productModel];

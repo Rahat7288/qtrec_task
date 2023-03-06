@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:qtec_task/l10n/l10n.dart';
 import 'package:qtec_task/services/api_service.dart';
 import 'package:qtec_task/screens/search_page/search_page.dart';
 import 'cubits/cubit/products_cubit.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
             create: (context) => ProductsCubit(apiService: ApiService()))
       ],
       child: MaterialApp(
+        supportedLocales: L10n.all,
         debugShowCheckedModeBanner: false,
         title: 'Flutter Task',
         theme: ThemeData(

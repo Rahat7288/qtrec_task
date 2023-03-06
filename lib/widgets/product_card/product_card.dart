@@ -5,10 +5,10 @@ import 'package:qtec_task/widgets/product_card/elements/stock_tag.dart';
 class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
-    required this.productModel,
     required this.press,
+    required this.results,
   });
-  final ProductModel productModel;
+  final Results results;
   final Function() press;
 
   @override
@@ -37,15 +37,14 @@ class ProductCard extends StatelessWidget {
                       child: Image(
                         height: 117,
                         width: 87,
-                        image: AssetImage(
-                            productModel.data.products.results[0].image),
+                        image: AssetImage(results.image),
                       ),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      productModel.data.products.results[0].productName,
+                      results.productName,
                       style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
@@ -79,13 +78,7 @@ class ProductCard extends StatelessWidget {
                                   width: 5,
                                 ),
                                 Text(
-                                  productModel
-                                      .data
-                                      .products
-                                      .results[0]
-                                      .charge
-                                      .currentCharge
-                                      .toString(),
+                                  results.charge.currentCharge.toString(),
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
@@ -108,13 +101,7 @@ class ProductCard extends StatelessWidget {
                                   width: 5,
                                 ),
                                 Text(
-                                  productModel
-                                      .data
-                                      .products
-                                      .results[0]
-                                      .charge
-                                      .sellingPrice
-                                      .toString(),
+                                  results.charge.sellingPrice.toString(),
                                   style: const TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w600,
@@ -132,13 +119,7 @@ class ProductCard extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  productModel
-                                      .data
-                                      .products
-                                      .results[0]
-                                      .charge
-                                      .discountCharge
-                                      .toString(),
+                                  results.charge.discountCharge.toString(),
                                   style: const TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w500,
@@ -165,13 +146,7 @@ class ProductCard extends StatelessWidget {
                                   width: 5,
                                 ),
                                 Text(
-                                  productModel
-                                      .data
-                                      .products
-                                      .results[0]
-                                      .charge
-                                      .profit
-                                      .toString(),
+                                  results.charge.profit.toString(),
                                   style: const TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w600,

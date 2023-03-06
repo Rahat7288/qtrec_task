@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:qtec_task/models/product_model.dart';
 
 class ImageSlider extends StatefulWidget {
-  const ImageSlider({super.key});
+  const ImageSlider({
+    super.key,
+  });
 
   @override
   State<ImageSlider> createState() => _ImageSliderState();
@@ -17,6 +20,7 @@ class _ImageSliderState extends State<ImageSlider> {
     'assets/images/img2.png',
     'assets/images/img2.png',
   ];
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(

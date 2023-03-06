@@ -69,7 +69,8 @@ class _SearchPageState extends State<SearchPage> {
                                   mainAxisExtent: 267),
                           itemBuilder: (context, index) => ProductCard(
                             press: () {},
-                            productModel: state.productModel,
+                            results:
+                                state.productModel.data.products.results[index],
                           ),
                           // ProductCard(
                           //   results: state.productModel.data.products.results,
